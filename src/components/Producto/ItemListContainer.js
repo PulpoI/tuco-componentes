@@ -1,8 +1,8 @@
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
-import "./Producto.css";
+import "./ItemListContainer.css";
 
-const Producto = ({ img, name, precio }) => (
+const ItemListContainer = ({ img, name, precio }) => (
   <Card className="Producto">
     <Image src={img} wrapped ui={false} />
     <Card.Content>
@@ -16,4 +16,4 @@ const Producto = ({ img, name, precio }) => (
   </Card>
 );
 
-export default Producto;
+export default ItemListContainer;

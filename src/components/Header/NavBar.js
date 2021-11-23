@@ -4,7 +4,7 @@ import CartWidget from "./CartWidget";
 
 import logo from "../../assets/logoD.png";
 
-const Header = () => {
+const NavBar = () => {
   return (
     <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -50,4 +50,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;
