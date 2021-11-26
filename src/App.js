@@ -3,10 +3,10 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Components
 import NavBar from "./components/Header/NavBar";
-import Main from "./components/Main/Main"
-import ItemListContainer from "./components/Producto/ItemListContainer";
-import ItemCount from "./components/Producto/ItemCount/ItemCount"
-
+import Main from "./components/Main/Main";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemCount from "./components/ItemListContainer/ItemCount/ItemCount";
+import ItemList from "./components/ItemListContainer/ItemList/ItemList";
 
 class App extends Component {
   render() {
@@ -14,13 +14,8 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Main />
-        <ItemListContainer
-          img="https://tucoremeras.store/wp-content/uploads/2021/04/DSC0245-1367x2048.jpg"
-          name="Remera Uno"
-          precio="$1300"
-        />
-        <ItemCount />
-        
+
+        <ItemList />
       </div>
     );
   }

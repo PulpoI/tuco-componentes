@@ -1,0 +1,14 @@
+.ui.card:first-child {
+  margin-top: 1em !important;
+}
+
+.image {
+  background: #ccc;
+  overflow: hidden;
+}
+
+/* .ui.card > .image > img,
+.ui.cards > .card > .image > img {
+  width: 125% !important;
+  height: auto;
+} */

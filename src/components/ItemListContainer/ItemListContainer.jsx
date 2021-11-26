@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
 import "./ItemListContainer.css";
+import ItemCount from "./ItemCount/ItemCount"
 
 const ItemListContainer = ({ img, name, precio }) => (
   <Card className="Producto">
@@ -12,6 +13,7 @@ const ItemListContainer = ({ img, name, precio }) => (
         <span className="date"></span>
       </Card.Meta>
       <Card.Description>{precio}</Card.Description>
+      <ItemCount />
     </Card.Content>
   </Card>
 );
