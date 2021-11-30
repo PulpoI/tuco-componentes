@@ -10,7 +10,7 @@ const Item = ({ data }) => (
       <Card.Meta>
         <span className="date">Categoria: {data.nombre}</span>
       </Card.Meta>
-      <Card.Description>Talle</Card.Description>
+      <Card.Description>Talle: {data.id}</Card.Description>
     </Card.Content>
     <Card.Content extra>
       <a>
