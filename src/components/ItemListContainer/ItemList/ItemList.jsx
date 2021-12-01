@@ -25,7 +25,7 @@ const ItemList = () => {
       ) : (
         productos.map((user, indice) => {
           return (
-            <Link to={`/detail/${user.id}`}>
+            <Link to={`/producto/${user.id}`}>
               <Item data={user} key={indice} />
             </Link>
           );
