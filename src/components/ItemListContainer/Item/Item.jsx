@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import "./Item.css";
+import ItemDetail from "../../../views/ItemDetailContainer/ItemDetail";
 
 const Item = ({ data }) => (
   <Card>

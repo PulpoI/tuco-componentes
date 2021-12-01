@@ -1,11 +1,18 @@
-import { Icon } from "semantic-ui-react";
+import React from "react";
+import { Button, Icon } from "semantic-ui-react";
 
-const CartWidget = () => {
-  return (
-    <a href="https://google.com">
-      <Icon color="yellow" name="shopping cart" size="large" />
-    </a>
-  );
+const CartWidget = ({ name }) => (
+  <div>
+    <Button animated="vertical">
+      <Button.Content hidden>{name}</Button.Content>
+      <Button.Content visible>
+        <Icon name="shop" />
+      </Button.Content>
+    </Button>
+  </div>
+);
+CartWidget.defaultProps = {
+  name: "Carrito",
 };
 
 export default CartWidget;

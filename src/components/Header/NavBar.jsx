@@ -1,4 +1,5 @@
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CartWidget from "./CartWidget";
 
@@ -8,23 +9,33 @@ const NavBar = () => {
   return (
     <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
-          <img
-            src={logo}
-            width="100%"
-            height="50"
-            className="d-inline-block align-top"
-            alt="React Bootstrap logo"
-          />
-        </Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand href="#home">
+            <img
+              src={logo}
+              width="100%"
+              height="50"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">Productos</Nav.Link>
+            <Nav.Link>
+              <Link to="/">Home</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/productos">Productos</Link>
+            </Nav.Link>
             <NavDropdown title="Precios" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Remeras</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                <Nav.Link href="#pricing">
+                  <Link to="/remeras">Remeras</Link>
+                </Nav.Link>
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Buzos</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">COMBOS</NavDropdown.Item>
