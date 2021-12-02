@@ -10,7 +10,9 @@ function Productos() {
   return (
     <div className="App">
       <Main foto1={foto1} foto2={foto2} foto3={foto3} />
-      <ItemList />
+
+      <ItemList categoria="Meme" />
+      <ItemList categoria="Series" />
     </div>
   );
 }

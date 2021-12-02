@@ -12,15 +12,21 @@
 }
 
 .header {
-  height: 45px;
+  height: 25px;
 }
 
-.ImgCard img {
+.ImgCard img:hover {
   object-fit: none;
 }
-
-/* .ui.card > .image > img,
-.ui.cards > .card > .image > img {
-  width: 125% !important;
-  height: auto;
+/* .ui.card {
+  width: 265px !important;
 } */
+
+.ui.card > .image {
+  height: 350px !important;
+}
+
+.ui.card > .image > img {
+  position: absolute;
+  top: -15px;
+}

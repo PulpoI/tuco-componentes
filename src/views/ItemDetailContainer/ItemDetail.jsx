@@ -4,19 +4,21 @@ import axios from "axios";
 import ItemCount from "../../components/ItemListContainer/ItemCount/ItemCount";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import "./ItemDetail.css";
 
 function ItemDetail() {
   let id = useParams();
+  let categoria = useParams();
   let productID = id.id;
+  let productCate = categoria.categoria;
 
   const [caracter, setCaracter] = useState([]);
 
   useEffect(() => {
-    axios(`http://localhost:5000/productos/${productID}`).then((res) =>
+    axios(`http://localhost:5000/${productCate}/${productID}`).then((res) =>
       setCaracter(res.data)
     );
-  }, [productID]);
-  console.log(caracter);
+  }, [productCate, productID]);
 
   const addToCart = (qty) => {
     let prod;
@@ -26,22 +28,9 @@ function ItemDetail() {
 
   return (
     <div>
-      <h1>DETALLES</h1>
+      <h1>Remera {caracter.title}</h1>
 
-      <Card>
-        <Image src={caracter.img} wrapped ui={false} />
-        <Card.Content>
-          <Card.Header>{caracter.title}</Card.Header>
-          <Card.Meta>
-            <span className="date">Categoria: {caracter.nombre}</span>
-          </Card.Meta>
-          <Card.Description>Talle: {caracter.id}</Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <Icon name="user" />
-          Ver detalle
-        </Card.Content>
-      </Card>
+      <img src={caracter.img} alt={caracter.title} />
 
       <ItemCount stock={5} initial={1} onAdd={addToCart} />
       <Link to="/productos">

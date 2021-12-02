@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 
 import "./ItemList.css";
 
-const ItemList = () => {
+const ItemList = ({ categoria }) => {
   const [productos, setProductos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    axios("http://localhost:5000/productos").then((res) =>
+    axios(`http://localhost:5000/${categoria}`).then((res) =>
       setProductos(res.data)
     );
+
     setTimeout(() => {
       setIsLoading(false);
     }, 300);
@@ -25,7 +26,7 @@ const ItemList = () => {
       ) : (
         productos.map((user, indice) => {
           return (
-            <Link to={`/producto/${user.id}`}>
+            <Link to={`/${user.categoria}/${user.id}`}>
               <Item data={user} key={indice} />
             </Link>
           );
