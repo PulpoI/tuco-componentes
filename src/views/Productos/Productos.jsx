@@ -6,13 +6,12 @@ import foto1 from "../../assets/image_11.jpg";
 import foto2 from "../../assets/image_22.jpg";
 import foto3 from "../../assets/image_44.jpg";
 
-function Productos() {
+function Productos({ cat }) {
   return (
     <div className="App">
       <Main foto1={foto1} foto2={foto2} foto3={foto3} />
 
-      <ItemList categoria="Meme" />
-      <ItemList categoria="Series" />
+      <ItemList categoria={cat} />
     </div>
   );
 }

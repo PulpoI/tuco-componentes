@@ -21,11 +21,15 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/productos" element={<Productos />} />
+
           <Route path="/remeras" element={<Remeras />} />
           <Route path="/:categoria/:id" element={<ItemDetail />} />
-          <Route path="/:categoria/:id" element={<ItemDetail />} />
-          <Route path="/productos/:categoria" element={<Productos />} />
+
+          <Route
+            path="/productos/Series"
+            element={<Productos cat="Series" />}
+          />
+          <Route path="/productos/Memes" element={<Productos cat="Memes" />} />
         </Routes>
       </div>
     </Router>

@@ -26,9 +26,19 @@ const NavBar = () => {
             <Nav.Link>
               <Link to="/">Home</Link>
             </Nav.Link>
-            <Nav.Link>
-              <Link to="/productos">Productos</Link>
-            </Nav.Link>
+            <NavDropdown title="Remeras" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
+              <NavDropdown.Item>
+                <Nav.Link>
+                  <Link to="productos/Memes">Memes</Link>
+                </Nav.Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Nav.Link>
+                  <Link to="productos/Series">Series</Link>
+                </Nav.Link>
+              </NavDropdown.Item>
+            </NavDropdown>
             <NavDropdown title="Precios" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

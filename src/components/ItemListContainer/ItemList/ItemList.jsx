@@ -17,21 +17,23 @@ const ItemList = ({ categoria }) => {
     setTimeout(() => {
       setIsLoading(false);
     }, 300);
-  }, []);
+  }, [categoria]);
 
   return (
-    <div className="GridCards">
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        productos.map((user, indice) => {
-          return (
-            <Link to={`/${user.categoria}/${user.id}`}>
-              <Item data={user} key={indice} />
-            </Link>
-          );
-        })
-      )}
+    <div>
+      <div className="GridCards">
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          productos.map((user, indice) => {
+            return (
+              <Link to={`/${user.categoria}/${user.id}`}>
+                <Item data={user} key={indice} />
+              </Link>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 };
