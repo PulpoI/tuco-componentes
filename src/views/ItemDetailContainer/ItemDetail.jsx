@@ -33,7 +33,7 @@ function ItemDetail() {
       <img src={caracter.img} alt={caracter.title} />
 
       <ItemCount stock={5} initial={1} onAdd={addToCart} />
-      <Link to="/productos">
+      <Link to={`/productos/${productCate}`}>
         <Button animated>
           <Button.Content visible>Volver</Button.Content>
           <Button.Content hidden>
