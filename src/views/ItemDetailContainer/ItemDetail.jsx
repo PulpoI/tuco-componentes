@@ -6,13 +6,14 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
 
-function ItemDetail() {
+function ItemDetail({ item }) {
   let id = useParams();
   let categoria = useParams();
   let productID = id.id;
   let productCate = categoria.categoria;
 
   const [caracter, setCaracter] = useState([]);
+  const [add, setAdd] = useState(false);
 
   useEffect(() => {
     axios(`http://localhost:5000/${productCate}/${productID}`).then((res) =>
@@ -20,10 +21,8 @@ function ItemDetail() {
     );
   }, [productCate, productID]);
 
-  const addToCart = (qty) => {
-    let prod;
-    qty > 1 ? (prod = "productos") : (prod = "producto");
-    alert(`Ingresaste ${qty} ${prod} al carrito`);
+  const onAdd = () => {
+    setAdd(!add);
   };
 
   return (
@@ -31,13 +30,16 @@ function ItemDetail() {
       <h1>Remera {caracter.title}</h1>
 
       <img src={caracter.img} alt={caracter.title} />
-
-      <ItemCount stock={5} initial={1} onAdd={addToCart} />
-      <Link to={`/productos/${productCate}`}>
+      {add ? (
+        <Button.Content visible>¡Agregado al carrito!</Button.Content>
+      ) : (
+        <ItemCount stock={5} initial={1} onAdd={onAdd} />
+      )}
+      <Link to="/cart">
         <Button animated>
-          <Button.Content visible>Volver</Button.Content>
+          <Button.Content visible>Finalizar Compra</Button.Content>
           <Button.Content hidden>
-            <Icon name="arrow left" />
+            <Icon name="arrow right" />
           </Button.Content>
         </Button>
       </Link>
