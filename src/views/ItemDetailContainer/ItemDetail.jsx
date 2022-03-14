@@ -1,10 +1,11 @@
 import { Card, Image, Icon, Button } from "semantic-ui-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import ItemCount from "../../components/ItemListContainer/ItemCount/ItemCount";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
+import { CartContext } from "../../context/useContext";
 
 function ItemDetail({ item }) {
   let id = useParams();
@@ -14,6 +15,7 @@ function ItemDetail({ item }) {
 
   const [caracter, setCaracter] = useState([]);
   const [add, setAdd] = useState(false);
+  const precioRemeras = 1300;
 
   useEffect(() => {
     axios(`http://localhost:5000/${productCate}/${productID}`).then((res) =>
@@ -21,20 +23,26 @@ function ItemDetail({ item }) {
     );
   }, [productCate, productID]);
 
-  const onAdd = () => {
-    setAdd(!add);
-  };
+  const { addItem } = useContext(CartContext);
+
+  // const onAdd = () => {
+  //   setAdd(!add);
+  // };
 
   return (
     <div>
       <h1>Remera {caracter.title}</h1>
 
       <img src={caracter.img} alt={caracter.title} />
+      <Card.Meta>
+        <span className="price">Precio: ${precioRemeras}</span>
+      </Card.Meta>
       {add ? (
         <Button.Content visible>¡Agregado al carrito!</Button.Content>
       ) : (
-        <ItemCount stock={5} initial={1} onAdd={onAdd} />
+        <ItemCount item={caracter} stock={5} initial={1} addItem={addItem} />
       )}
+
       <Link to="/cart">
         <Button animated>
           <Button.Content visible>Finalizar Compra</Button.Content>

@@ -2,6 +2,8 @@ import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import "./Item.css";
 
+const precioRemeras = 1300;
+
 const Item = ({ data }) => (
   <Card color="grey">
     <Image className="ImgCard" src={data.img} wrapped ui={false} />
@@ -9,6 +11,9 @@ const Item = ({ data }) => (
       <Card.Header style={{ fontSize: 13 }}>{data.title}</Card.Header>
       <Card.Meta>
         <span className="date">Categoria: {data.categoria}</span>
+      </Card.Meta>
+      <Card.Meta>
+        <span className="price">Precio: ${precioRemeras}</span>
       </Card.Meta>
     </Card.Content>
     <Card.Content extra>
